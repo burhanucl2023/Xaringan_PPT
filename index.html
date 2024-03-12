@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>MODIS</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Burhan Ahmad Wani" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/shinobi.css" rel="stylesheet" />
+    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <script src="libs/js-cookie/js.cookie.js"></script>
+    <script src="libs/peerjs/peerjs.min.js"></script>
+    <script src="libs/tiny.toast/toast.min.js"></script>
+    <link href="libs/xaringanExtra-broadcast/broadcast.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-broadcast/broadcast.js"></script>
+    <script src="libs/freezeframe/freezeframe.min.js"></script>
+    <script src="libs/xaringanExtra-freezeframe/freezeframe-init.js"></script>
+    <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":true,"warnings":true}</script>
+    <script src="libs/fabric/fabric.min.js"></script>
+    <link href="libs/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-scribble/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30,"palette":[]}) })</script>
+    <script src="libs/mark.js/mark.min.js"></script>
+    <link href="libs/xaringanExtra-search/search.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-search/search.js"></script>
+    <script>window.addEventListener('load', function() { window.xeSearch = new RemarkSearch({"position":"bottom-left","caseSensitive":false,"showIcon":true,"autoSearch":false}) })</script>
+    <script src="libs/clipboard/clipboard.min.js"></script>
+    <link href="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-clipboard/xaringanExtra-clipboard.js"></script>
+    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <script type="application/json" id="xaringanExtra-editable-docid">{"id":"x400d4480bfa48dfb0102139cbef57df","expires":1}</script>
+    <script src="libs/himalaya/himalaya.js"></script>
+    <link href="libs/editable/editable.css" rel="stylesheet" />
+    <script src="libs/editable/editable.js"></script>
+    <script src="libs/xaringanExtra_fit-screen/fit-screen.js"></script>
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# MODIS
+]
+.subtitle[
+## Moderate Resolution Imaging Spectroradiometer
+]
+.author[
+### Burhan Ahmad Wani
+]
+.institute[
+### University College London(UCL)
+]
+.date[
+### (updated: 2024-03-12)
+]
+
+---
+
+class: center, top, inverse
+## The Presentation is made in "Xaringan", so we use the theme of the five great Shinobi Villages
+
+
+&lt;img src="images/FIRE.png" width="100%" style="display: block; margin: auto;" /&gt;
+
+
+
+
+---
+class: inverse, center, middle
+# Basic Introduction of MODIS
+
+---
+
+# &lt;span style="font-size: 30pt;"&gt;Introduction&lt;/span&gt;
+
+
+.panelset[
+
+.panel[.panel-name[IMAGINE]
+
+* &lt;span style="font-size: 24pt;"&gt;Picture MODIS as the keen eye aboard the Terra and Aqua satellites. Terra takes the morning shift, gliding from north to south across the equator, while Aqua takes over in the afternoon, cruising from south to north over the equatorial belt.&lt;/span&gt;
+
+]
+
+.panel[.panel-name[OPERATION]
+
+* &lt;span style="font-size: 24pt;"&gt;The Moderate Resolution Imaging Spectroradiometer (MODIS) operates aboard the Terra and Aqua satellites, originally known as EOS AM-1 and EOS PM-1 respectively.&lt;/span&gt;
+
+]
+
+.panel[.panel-name[CAPTURE]
+
+* &lt;span style="font-size: 24pt;"&gt;Both Terra MODIS and Aqua MODIS capture images of the entire Earth's surface every 1 to 2 days.&lt;/span&gt;
+
+]
+
+.panel[.panel-name[BANDS]
+
+* &lt;span style="font-size: 24pt;"&gt;They utilize 36 spectral bands to collect data across various wavelengths, as outlined in MODIS Technical Specifications&lt;/span&gt;
+
+]
+
+.panel[.panel-name[USES]
+
+* &lt;span style="font-size: 24pt;"&gt;The datasets from MODIS aid in understanding global dynamics across land, ocean, and the lower atmosphere, while the resulting models are vital tools for policymakers to make informed decisions regarding environmental protection and addressing global challenges.&lt;/span&gt;
+
+]
+
+]
+
+---
+class: center, middle
+# Use Case Scenarios of MODIS
+
+---
+# &lt;span style="font-size: 30pt;"&gt;IMPACT OF MODIS&lt;/span&gt;
+.panelset[
+
+.panel[.panel-name[EARTH]
+.pull-left[
+* &lt;span style="font-size: 14pt;"&gt;The two images show the landcover change over time. In April 2021, Mexico was experiencing what was then one of its most widespread and intense droughts in decades, with 85 percent of the country facing drought conditions, according to an article published by NASA’s Earth Observatory on May 5, 2021. Despite those harsh conditions, the October 2021 image still shows much more widespread vegetation compared to October 2023. The expanding drought, highlighted by extensive tan land, is obvious by October 2023, Source: [NASA](https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-02-27) &lt;/span&gt;
+]
+.pull-right[
+&lt;img src="images/drough_mexico.jpg" width="80%" style="display: block; margin: auto;" /&gt;
+           ]
+
+]
+
+.panel[.panel-name[FIRE]
+.pull-left[
+* &lt;span style="font-size: 14pt;"&gt;On February 20, 2024, the Moderate Resolution Imaging Spectroradiometer (MODIS) on NASA’s Terra satellite acquired a true-color image of widespread fires blazing in the Amazon. The image is centered on large and abundant fires in the state Roraima, in northern Brazil. Red “hot spots” and heavy smoke mark actively burning fires, Source: [NASA](https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-02-22) &lt;/span&gt;
+]
+.pull-right[
+&lt;img src="images/fire_amazon.jpg" width="70%" style="display: block; margin: auto;" /&gt;
+]
+]
+
+
+.panel[.panel-name[WATER]
+.pull-left[
+* &lt;span style="font-size: 14pt;"&gt;Lake Chad was once one of Africa’s largest freshwater lakes, spanning an area roughly the size of North America’s present-day Lake Erie. With a warming climate, decreasing rainfall, and increasing demands from an increasing population, Lake Chad has been shrinking over the last several decades. It is estimated that it has lost about 92 percent of its former size, while the greater Lake Chad Basin contributes to the food security for 50 million people, Source: [NASA](https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-03-03) &lt;/span&gt;
+]
+.pull-right[
+&lt;img src="images/lake_chad.jpg" width="70%" style="display: block; margin: auto;" /&gt;
+           ]
+
+]
+
+.panel[.panel-name[CLOUD]
+.pull-left[
+* &lt;span style="font-size: 14pt;"&gt;The Moderate Resolution Imaging Spectroradiometer (MODIS) on NASA’s Terra satellite acquired a true-color image of Tropical Cyclone Eleanor over the Indian Ocean. Mauritius is outlined and sits near the center of the storm, Source: [NASA](https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-02-24)&lt;/span&gt;
+]
+.pull-right[
+&lt;img src="images/fire_amazon.jpg" width="70%" style="display: block; margin: auto;" /&gt;
+]
+]
+
+.panel[.panel-name[WIND]
+.pull-left[
+* &lt;span style="font-size: 14pt;"&gt;Strong winds drove sand from northern Africa across the Gulf of Sidra and the Mediterranean Sea in late February 2024. The Moderate Resolution Imaging Spectroradiometer (MODIS) on NASA’s Aqua satellite acquired a true-color image of the moving sand on February 28, Source : [NASA](https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-03-01) &lt;/span&gt;
+]
+.pull-right[
+&lt;img src="images/WIND.jpg" width="70%" style="display: block; margin: auto;" /&gt;
+]
+]
+
+]
+
+---
+class: center, middle
+# Conclusion
+
+
+
+---
+
+# Reflection
+### 1. MODIS has played a vital role in climate change research spanning more than two decades.
+
+### 2. With its long mission lifespan, MODIS provides extensive time series data for studying gradual changes.
+
+### 3. Despite its spatial resolution limitations, MODIS remains invaluable for monitoring climate changes, pollution,land-use, air-quality, vegetation , urban heat islands, &amp; many other uses.
+
+---
+
+# References
+&lt;span style="font-size: 20pt;"&gt; 1. Drought Mexico, https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-02-27 &lt;/span&gt;
+
+&lt;span style="font-size: 20pt;"&gt; 2. Fire in Amazon, https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-02-22 &lt;/span&gt;
+
+&lt;span style="font-size: 20pt;"&gt; 3. Shrinking Lake Chad, https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-03-03 &lt;/span&gt;
+
+&lt;span style="font-size: 20pt;"&gt; 4. Tropical Cyclone -Cloud, https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-02-24 &lt;/span&gt;
+
+&lt;span style="font-size: 20pt;"&gt;  5. Winds Mediterranean Sea, https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-03-01 &lt;/span&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "solarized-dark",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

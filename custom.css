@@ -1,0 +1,5 @@
+/* Custom CSS to modify the background and text color */
+.remark-slide-content {
+  background-color: ivory; /* Change this to your desired background color */
+  color: black; /* Change this to your desired text color */
+}

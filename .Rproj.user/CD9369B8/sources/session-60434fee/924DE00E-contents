@@ -1,0 +1,197 @@
+---
+title: "MODIS"
+subtitle: "Moderate Resolution Imaging Spectroradiometer"
+author: "Burhan Ahmad Wani"
+institute: "University College London(UCL)"
+date: "(updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: ["shinobi", "custom.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: solarized-dark
+      highlightLines: true
+      countIncrementalSlides: false
+---
+class: center, top, inverse
+## The Presentation is made in "Xaringan", so we use the theme of the five great Shinobi Villages
+
+
+```{r echo=FALSE, out.width='100%', fig.align='center'}
+knitr::include_graphics('images/FIRE.png')
+```
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+```{r xaringan-all, echo=FALSE}
+suppressWarnings({
+  library(countdown)
+  library(xaringan)
+  library(xaringanExtra)
+  library(knitr)
+})
+
+hook_source <- knitr::knit_hooks$get('source')
+knitr::knit_hooks$set(source = function(x, options) {
+  x <- stringr::str_replace(x, "^[[:blank:]]?([^*].+?)[[:blank:]]*#<<[[:blank:]]*$", "*\\1")
+  hook_source(x, options)
+})
+
+xaringanExtra::use_tachyons()
+xaringanExtra::use_broadcast()
+xaringanExtra::use_freezeframe()
+xaringanExtra::use_scribble()
+#xaringanExtra::use_slide_tone()
+xaringanExtra::use_search(show_icon = TRUE, auto_search = FALSE)
+xaringanExtra::use_freezeframe()
+xaringanExtra::use_clipboard()
+xaringanExtra::use_tile_view()
+xaringanExtra::use_panelset()
+xaringanExtra::use_editable(expires = 1)
+xaringanExtra::use_fit_screen()
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         
+  mute_unhighlighted_code = TRUE  
+)
+
+```
+---
+class: inverse, center, middle
+# Basic Introduction of MODIS
+
+---
+
+# <span style="font-size: 30pt;">Introduction</span>
+
+
+.panelset[
+
+.panel[.panel-name[IMAGINE]
+
+* <span style="font-size: 24pt;">Picture MODIS as the keen eye aboard the Terra and Aqua satellites. Terra takes the morning shift, gliding from north to south across the equator, while Aqua takes over in the afternoon, cruising from south to north over the equatorial belt.</span>
+
+]
+
+.panel[.panel-name[OPERATION]
+
+* <span style="font-size: 24pt;">The Moderate Resolution Imaging Spectroradiometer (MODIS) operates aboard the Terra and Aqua satellites, originally known as EOS AM-1 and EOS PM-1 respectively.</span>
+
+]
+
+.panel[.panel-name[CAPTURE]
+
+* <span style="font-size: 24pt;">Both Terra MODIS and Aqua MODIS capture images of the entire Earth's surface every 1 to 2 days.</span>
+
+]
+
+.panel[.panel-name[BANDS]
+
+* <span style="font-size: 24pt;">They utilize 36 spectral bands to collect data across various wavelengths, as outlined in MODIS Technical Specifications</span>
+
+]
+
+.panel[.panel-name[USES]
+
+* <span style="font-size: 24pt;">The datasets from MODIS aid in understanding global dynamics across land, ocean, and the lower atmosphere, while the resulting models are vital tools for policymakers to make informed decisions regarding environmental protection and addressing global challenges.</span>
+
+]
+
+]
+
+---
+class: center, middle
+# Use Case Scenarios of MODIS
+
+---
+# <span style="font-size: 30pt;">IMPACT OF MODIS</span>
+.panelset[
+
+.panel[.panel-name[EARTH]
+.pull-left[
+* <span style="font-size: 14pt;">The two images show the landcover change over time. In April 2021, Mexico was experiencing what was then one of its most widespread and intense droughts in decades, with 85 percent of the country facing drought conditions, according to an article published by NASA’s Earth Observatory on May 5, 2021. Despite those harsh conditions, the October 2021 image still shows much more widespread vegetation compared to October 2023. The expanding drought, highlighted by extensive tan land, is obvious by October 2023, Source: [NASA](https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-02-27) </span>
+]
+.pull-right[
+```{r echo=FALSE, out.width='80%', fig.align='center'}
+knitr::include_graphics('images/drough_mexico.jpg')
+```
+           ]
+
+]
+
+.panel[.panel-name[FIRE]
+.pull-left[
+* <span style="font-size: 14pt;">On February 20, 2024, the Moderate Resolution Imaging Spectroradiometer (MODIS) on NASA’s Terra satellite acquired a true-color image of widespread fires blazing in the Amazon. The image is centered on large and abundant fires in the state Roraima, in northern Brazil. Red “hot spots” and heavy smoke mark actively burning fires, Source: [NASA](https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-02-22) </span>
+]
+.pull-right[
+```{r echo=FALSE, out.width='70%', fig.align='center'}
+knitr::include_graphics('images/fire_amazon.jpg')
+```
+]
+]
+
+
+.panel[.panel-name[WATER]
+.pull-left[
+* <span style="font-size: 14pt;">Lake Chad was once one of Africa’s largest freshwater lakes, spanning an area roughly the size of North America’s present-day Lake Erie. With a warming climate, decreasing rainfall, and increasing demands from an increasing population, Lake Chad has been shrinking over the last several decades. It is estimated that it has lost about 92 percent of its former size, while the greater Lake Chad Basin contributes to the food security for 50 million people, Source: [NASA](https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-03-03) </span>
+]
+.pull-right[
+```{r echo=FALSE, out.width='70%', fig.align='center'}
+knitr::include_graphics('images/lake_chad.jpg')
+```
+           ]
+
+]
+
+.panel[.panel-name[CLOUD]
+.pull-left[
+* <span style="font-size: 14pt;">The Moderate Resolution Imaging Spectroradiometer (MODIS) on NASA’s Terra satellite acquired a true-color image of Tropical Cyclone Eleanor over the Indian Ocean. Mauritius is outlined and sits near the center of the storm, Source: [NASA](https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-02-24)</span>
+]
+.pull-right[
+```{r echo=FALSE, out.width='70%', fig.align='center'}
+knitr::include_graphics('images/fire_amazon.jpg')
+```
+]
+]
+
+.panel[.panel-name[WIND]
+.pull-left[
+* <span style="font-size: 14pt;">Strong winds drove sand from northern Africa across the Gulf of Sidra and the Mediterranean Sea in late February 2024. The Moderate Resolution Imaging Spectroradiometer (MODIS) on NASA’s Aqua satellite acquired a true-color image of the moving sand on February 28, Source : [NASA](https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-03-01) </span>
+]
+.pull-right[
+```{r echo=FALSE, out.width='70%', fig.align='center'}
+knitr::include_graphics('images/WIND.jpg')
+```
+]
+]
+
+]
+
+---
+class: center, middle
+# Conclusion
+
+
+
+---
+
+# Reflection
+### 1. MODIS has played a vital role in climate change research spanning more than two decades.
+
+### 2. With its long mission lifespan, MODIS provides extensive time series data for studying gradual changes.
+
+### 3. Despite its spatial resolution limitations, MODIS remains invaluable for monitoring climate changes, pollution,land-use, air-quality, vegetation , urban heat islands, & many other uses.
+
+---
+
+# References
+<span style="font-size: 20pt;"> 1. Drought Mexico, https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-02-27 </span>
+
+<span style="font-size: 20pt;"> 2. Fire in Amazon, https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-02-22 </span>
+
+<span style="font-size: 20pt;"> 3. Shrinking Lake Chad, https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-03-03 </span>
+
+<span style="font-size: 20pt;"> 4. Tropical Cyclone -Cloud, https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-02-24 </span>
+
+<span style="font-size: 20pt;">  5. Winds Mediterranean Sea, https://modis.gsfc.nasa.gov/gallery/individual.php?db_date=2024-03-01 </span>
